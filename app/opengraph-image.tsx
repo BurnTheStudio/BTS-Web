@@ -1,7 +1,6 @@
 import { ImageResponse } from 'next/og';
 import { SITE_WORDMARK, SITE_TAGLINE } from '@/lib/site';
 
-export const runtime = 'edge';
 export const alt = 'Burn The Studio · Product, Design and Engineering';
 export const size = {
   width: 1200,
@@ -51,6 +50,9 @@ export default async function Image() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <div
             style={{
+              display: 'flex',
+              flexDirection: 'row',
+              flexWrap: 'wrap',
               color: '#F4EEE2',
               fontSize: '76px',
               lineHeight: 1.05,
@@ -58,7 +60,8 @@ export default async function Image() {
               fontWeight: 500,
             }}
           >
-            Real problems, <span style={{ color: '#E3B64F', fontStyle: 'italic' }}>real fixes.</span>
+            <span>Real problems,&nbsp;</span>
+            <span style={{ color: '#E3B64F', fontStyle: 'italic' }}>real fixes.</span>
           </div>
 
           <div
