@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { PROBLEMS, Problem } from '@/content/problems';
 
 export function ProblemsAccordion() {
@@ -13,11 +14,9 @@ export function ProblemsAccordion() {
   return (
     <section id="problems" className="bg-paper text-ink scroll-mt-20">
       <div className="relative">
-        {/* Hairline grid */}
         <div className="absolute inset-0 max-w-content mx-auto grid-hairlines-light pointer-events-none" aria-hidden="true" />
 
         <div className="relative max-w-content mx-auto px-6 md:px-10 py-24 md:py-36">
-          {/* Section header — centered, editorial */}
           <div className="text-center mb-20 md:mb-28">
             <span className="font-mono text-[11px] uppercase tracking-mono text-stone block mb-4">
               09 REAL PROBLEMS
@@ -27,13 +26,11 @@ export function ProblemsAccordion() {
             </h2>
           </div>
 
-          {/* Accordion index */}
           <div className="border-t-2 border-ink">
             {PROBLEMS.map((problem: Problem) => {
               const isOpen = openId === problem.id;
               return (
                 <div key={problem.id} className="border-b-2 border-ink">
-                  {/* Strip header */}
                   <button
                     type="button"
                     onClick={() => toggle(problem.id)}
@@ -55,12 +52,11 @@ export function ProblemsAccordion() {
                         {problem.title}
                       </h3>
                     </div>
-                    <span className="font-mono text-lg text-ink shrink-0" aria-hidden="true">
-                      {isOpen ? '\u2014' : '+'}
+                    <span className="font-mono text-lg text-ink shrink-0 select-none" aria-hidden="true">
+                      {isOpen ? '—' : '+'}
                     </span>
                   </button>
 
-                  {/* Panel */}
                   <div
                     id={`panel-${problem.id}`}
                     role="region"
@@ -73,23 +69,49 @@ export function ProblemsAccordion() {
                         <p className="font-display italic text-lg md:text-xl text-ink/80 mb-8 pb-6 border-b border-ink/15">
                           {problem.subline}
                         </p>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
                           <div>
-                            <span className="font-mono text-[10px] uppercase tracking-mono text-stone block mb-2">SYMPTOM</span>
-                            <p className="font-body text-[15px] leading-relaxed text-ink">{problem.symptom}</p>
+                            <span className="font-mono text-[10px] uppercase tracking-mono text-stone block mb-2">
+                              SYMPTOM
+                            </span>
+                            <p className="font-body text-[15px] leading-relaxed text-ink">
+                              {problem.symptom}
+                            </p>
                           </div>
                           <div>
-                            <span className="font-mono text-[10px] uppercase tracking-mono text-stone block mb-2">WHAT\u2019S REALLY GOING ON</span>
-                            <p className="font-body text-[15px] leading-relaxed text-ink">{problem.reallyGoingOn}</p>
+                            <span className="font-mono text-[10px] uppercase tracking-mono text-stone block mb-2">
+                              WHAT’S REALLY GOING ON
+                            </span>
+                            <p className="font-body text-[15px] leading-relaxed text-ink">
+                              {problem.reallyGoingOn}
+                            </p>
                           </div>
                           <div>
-                            <span className="font-mono text-[10px] uppercase tracking-mono text-stone block mb-2">HOW WE SOLVE IT</span>
-                            <p className="font-body text-[15px] leading-relaxed text-ink">{problem.howWeSolve}</p>
+                            <span className="font-mono text-[10px] uppercase tracking-mono text-stone block mb-2">
+                              HOW WE SOLVE IT
+                            </span>
+                            <p className="font-body text-[15px] leading-relaxed text-ink">
+                              {problem.howWeSolve}
+                            </p>
                           </div>
                           <div>
-                            <span className="font-mono text-[10px] uppercase tracking-mono text-stone block mb-2">WHAT YOU GET</span>
-                            <p className="font-body text-[15px] leading-relaxed text-ink">{problem.whatYouGet}</p>
+                            <span className="font-mono text-[10px] uppercase tracking-mono text-stone block mb-2">
+                              WHAT YOU GET
+                            </span>
+                            <p className="font-body text-[15px] leading-relaxed text-ink">
+                              {problem.whatYouGet}
+                            </p>
                           </div>
+                        </div>
+
+                        <div className="pt-4 border-t border-ink/15 flex justify-end">
+                          <Link
+                            href={`/problems/${problem.slug}`}
+                            className="font-mono text-xs uppercase tracking-mono text-ink font-medium hover:text-gold underline decoration-1 underline-offset-4 transition-colors inline-flex items-center gap-1.5"
+                          >
+                            <span>Read more</span>
+                            <span>→</span>
+                          </Link>
                         </div>
                       </div>
                     </div>

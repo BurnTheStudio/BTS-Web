@@ -10,7 +10,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "gray-matter": "^4.0.3",
+    "github-slugger": "^2.0.0",
     "next": "^14.2.15",
     "next-mdx-remote": "^6.0.0",
     "react": "^18.3.1",

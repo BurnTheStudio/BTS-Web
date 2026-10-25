@@ -6,12 +6,10 @@ import { Button } from './Button';
 export function Hero() {
   return (
     <section className="relative min-h-[100svh] flex flex-col justify-center bg-ink overflow-hidden">
-      {/* Hairline grid */}
       <div className="absolute inset-0 grid-hairlines-dark pointer-events-none" aria-hidden="true" />
 
       <div className="relative max-w-content mx-auto px-6 md:px-10 w-full py-20 md:py-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12 items-center">
-          {/* Text */}
           <div className="flex flex-col items-start">
             <span className="font-mono text-[11px] uppercase tracking-mono text-gold mb-8">
               {SITE_TAGLINE}
@@ -36,7 +34,6 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Logo block */}
           <div className="flex justify-center lg:justify-end">
             <div className="w-full max-w-[480px] bg-ink border-2 border-paper/20 p-10 sm:p-14 md:p-16 shadow-[8px_8px_0_0_var(--gold)]">
               <Image
@@ -52,7 +49,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Bottom border */}
       <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-paper/10" />
     </section>
   );

@@ -1,6 +1,7 @@
 export interface Problem {
   id: string;
   number: string;
+  slug: string;
   category: string;
   title: string;
   subline: string;
@@ -14,6 +15,7 @@ export const PROBLEMS: Problem[] = [
   {
     id: 'retention',
     number: '01',
+    slug: 'retention',
     category: 'RETENTION',
     title: 'Users sign up, then vanish',
     subline: 'Acquisition isn’t the problem when the bucket leaks.',
@@ -27,6 +29,7 @@ export const PROBLEMS: Problem[] = [
   {
     id: 'operations',
     number: '02',
+    slug: 'operations',
     category: 'OPERATIONS',
     title: 'The business runs on spreadsheets',
     subline: 'It worked at ten orders a day. It breaks at a hundred.',
@@ -40,6 +43,7 @@ export const PROBLEMS: Problem[] = [
   {
     id: 'speed-to-market',
     number: '03',
+    slug: 'speed-to-market',
     category: 'SPEED TO MARKET',
     title: 'The MVP that never launches',
     subline: 'Twelve months in, and still “almost ready”.',
@@ -52,6 +56,7 @@ export const PROBLEMS: Problem[] = [
   {
     id: 'legacy-code',
     number: '04',
+    slug: 'legacy-code',
     category: 'LEGACY CODE',
     title: 'Nobody wants to touch the code',
     subline: 'Every change breaks something else.',
@@ -65,6 +70,7 @@ export const PROBLEMS: Problem[] = [
   {
     id: 'performance',
     number: '05',
+    slug: 'performance',
     category: 'PERFORMANCE',
     title: 'The product feels slow',
     subline: 'Users don’t file bug reports. They just leave.',
@@ -78,6 +84,7 @@ export const PROBLEMS: Problem[] = [
   {
     id: 'conversion',
     number: '06',
+    slug: 'conversion',
     category: 'CONVERSION',
     title: 'Traffic arrives, nobody converts',
     subline: 'The product is good. The first impression isn’t.',
@@ -91,6 +98,7 @@ export const PROBLEMS: Problem[] = [
   {
     id: 'capacity',
     number: '07',
+    slug: 'capacity',
     category: 'CAPACITY',
     title: 'Your team can’t keep up',
     subline: 'The roadmap is bigger than the people available to build it.',
@@ -104,6 +112,7 @@ export const PROBLEMS: Problem[] = [
   {
     id: 'trust',
     number: '08',
+    slug: 'trust',
     category: 'TRUST',
     title: 'The last agency burned you',
     subline: 'Missed deadlines, vanished developers, code you couldn’t access.',
@@ -117,6 +126,7 @@ export const PROBLEMS: Problem[] = [
   {
     id: 'brand',
     number: '09',
+    slug: 'brand',
     category: 'BRAND',
     title: 'The product looks cheaper than it is',
     subline: 'Premium pricing needs a premium experience.',
@@ -127,3 +137,7 @@ export const PROBLEMS: Problem[] = [
     whatYouGet: 'A product that looks worth what you charge.',
   },
 ];
+
+export function getProblemBySlug(slug: string): Problem | undefined {
+  return PROBLEMS.find((p) => p.slug === slug || p.id === slug);
+}
