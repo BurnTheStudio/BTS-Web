@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #0B0A08;
+  --paper: #F4EEE2;
+  --gold: #E3B64F;
+  --stone: #8A8272;
+}
+
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold) !important;
+  outline-offset: 2px !important;
+}
+
+/* Tactile button press */
+.btn-press {
+  transition: transform 120ms ease-out, box-shadow 120ms ease-out;
+}
+.btn-press:hover {
+  transform: translate(-2px, -2px);
+}
+.btn-press:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 0 transparent !important;
+}
+
+/* 12-column hairline grid — light on dark */
+.grid-hairlines-dark {
+  background-size: calc(100% / 12) 100%;
+  background-image: linear-gradient(to right, rgba(244, 238, 226, 0.06) 1px, transparent 1px);
+}
+
+/* 12-column hairline grid — dark on light */
+.grid-hairlines-light {
+  background-size: calc(100% / 12) 100%;
+  background-image: linear-gradient(to right, rgba(11, 10, 8, 0.08) 1px, transparent 1px);
+}
+
+/* Accordion panel animation */
+.accordion-panel {
+  display: grid;
+  transition: grid-template-rows 200ms ease-out, opacity 200ms ease-out;
+}
+.accordion-panel[data-state='closed'] {
+  grid-template-rows: 0fr;
+  opacity: 0;
+  pointer-events: none;
+}
+.accordion-panel[data-state='open'] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .btn-press:hover,
+  .btn-press:active {
+    transform: none !important;
+  }
+}

@@ -1,0 +1,43 @@
+---
+title: "[EXAMPLE] Core Loop Redesign & Infrastructure Stabilization"
+slug: "_example"
+year: 2026
+summary: "Re-scoped the onboarding loop and eliminated three legacy database bottlenecks to stabilize first-week retention."
+services:
+  - "Product"
+  - "Design"
+  - "Engineering"
+problemIds:
+  - "retention"
+  - "performance"
+client: "Example Ventures"
+cover: "/projects/_example/cover.png"
+coverAlt: "[EXAMPLE] System diagram illustrating onboarding flow refactor and query optimizations"
+featured: true
+publishedAt: "2026-01-15"
+links:
+  - label: "Example Staging Deployment"
+    href: "https://example.com"
+stack:
+  - "Next.js"
+  - "TypeScript"
+  - "PostgreSQL"
+  - "Tailwind CSS"
+draft: true
+---
+
+## The symptom
+
+Healthy sign-ups and a busy dashboard, but weekly active numbers plummeted after day three. Queries on the primary telemetry feed took upwards of four seconds, and users dropped off before reaching initial value.
+
+## What was really going on
+
+Scope had accumulated across four disparate product iterations without documentation. The critical onboarding path required seven unnecessary configuration steps before the user encountered the primary analytics screen. Concurrently, unindexed join queries on the activity table locked connections during peak sign-up windows.
+
+## How we solved it
+
+We conducted a forensic code audit on day one, mapped the real user journey, and cut five configuration screens from the initial loop. In engineering, we introduced targeted indexes, refactored high-cardinality queries, and wrapped the critical path in regression tests before shipping changes in weekly slices.
+
+## What the client got
+
+A direct two-step path to the core product experience, median query latency dropped from 4,100ms to 120ms, and a retention curve that stabilized across the first 30 days of real traffic.
